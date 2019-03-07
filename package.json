@@ -1,0 +1,49 @@
+{
+  "name": "@naturalcycles/logger-lib",
+  "version": "3.0.0",
+  "scripts": {
+    "build": "del ./dist && tsc",
+    "build-prod": "del ./dist && tsc -p tsconfig.prod.json"
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "@naturalcycles/js-lib": ">=2"
+  },
+  "devDependencies": {
+    "@naturalcycles/js-lib": "^3.0.0",
+    "@naturalcycles/semantic-release": "^1.0.0",
+    "@naturalcycles/shared-module": "^3.0.0",
+    "@types/jest": "^24.0.6",
+    "@types/node": "^10.0.0",
+    "jest": "^24.1.0",
+    "jest-junit": "^6.2.1",
+    "lru-cache": "^5.1.1",
+    "prettier": "^1.14.3",
+    "ts-jest": "^24.0.0",
+    "ts-node": "^8.0.2",
+    "tslint": "^5.11.0",
+    "typescript": "^3.0.0"
+  },
+  "files": [
+    "dist",
+    "src",
+    "!src/test",
+    "!src/**/*.test.ts",
+    "!src/**/__snapshots__"
+  ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NaturalCycles/logger-lib"
+  },
+  "engines": {
+    "node": ">=10.13"
+  },
+  "description": "",
+  "author": "Natural Cycles Team",
+  "license": "MIT"
+}

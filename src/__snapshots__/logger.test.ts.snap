@@ -1,0 +1,285 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`minimal logger with debug level basic api 1`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      Object {
+        "args": Array [
+          "hello",
+        ],
+        "level": "INFO",
+        "meta": undefined,
+        "tags": Array [],
+      },
+    ],
+    Array [
+      Object {
+        "args": Array [
+          "hello",
+        ],
+        "level": "DEBUG",
+        "meta": undefined,
+        "tags": Array [],
+      },
+    ],
+    Array [
+      Object {
+        "args": Array [
+          "hello",
+        ],
+        "level": "INFO",
+        "meta": undefined,
+        "tags": Array [],
+      },
+    ],
+    Array [
+      Object {
+        "args": Array [
+          "hello",
+        ],
+        "level": "WARN",
+        "meta": undefined,
+        "tags": Array [],
+      },
+    ],
+    Array [
+      Object {
+        "args": Array [
+          "hello",
+        ],
+        "level": "ERROR",
+        "meta": undefined,
+        "tags": Array [],
+      },
+    ],
+  ],
+  "results": Array [
+    Object {
+      "type": "return",
+      "value": undefined,
+    },
+    Object {
+      "type": "return",
+      "value": undefined,
+    },
+    Object {
+      "type": "return",
+      "value": undefined,
+    },
+    Object {
+      "type": "return",
+      "value": undefined,
+    },
+    Object {
+      "type": "return",
+      "value": undefined,
+    },
+  ],
+}
+`;
+
+exports[`minimal logger with debug level basic api with tag1 1`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      Object {
+        "args": Array [
+          "hello",
+        ],
+        "level": "INFO",
+        "meta": undefined,
+        "tags": Array [
+          "tag1",
+        ],
+      },
+    ],
+    Array [
+      Object {
+        "args": Array [
+          "hello",
+        ],
+        "level": "DEBUG",
+        "meta": undefined,
+        "tags": Array [
+          "tag1",
+        ],
+      },
+    ],
+    Array [
+      Object {
+        "args": Array [
+          "hello",
+        ],
+        "level": "INFO",
+        "meta": undefined,
+        "tags": Array [
+          "tag1",
+        ],
+      },
+    ],
+    Array [
+      Object {
+        "args": Array [
+          "hello",
+        ],
+        "level": "WARN",
+        "meta": undefined,
+        "tags": Array [
+          "tag1",
+        ],
+      },
+    ],
+    Array [
+      Object {
+        "args": Array [
+          "hello",
+        ],
+        "level": "ERROR",
+        "meta": undefined,
+        "tags": Array [
+          "tag1",
+        ],
+      },
+    ],
+  ],
+  "results": Array [
+    Object {
+      "type": "return",
+      "value": undefined,
+    },
+    Object {
+      "type": "return",
+      "value": undefined,
+    },
+    Object {
+      "type": "return",
+      "value": undefined,
+    },
+    Object {
+      "type": "return",
+      "value": undefined,
+    },
+    Object {
+      "type": "return",
+      "value": undefined,
+    },
+  ],
+}
+`;
+
+exports[`minimal logger with debug level deduplicate tags 1`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      Object {
+        "args": Array [
+          "hello",
+        ],
+        "level": "INFO",
+        "meta": undefined,
+        "tags": Array [
+          "tag1",
+        ],
+      },
+    ],
+  ],
+  "results": Array [
+    Object {
+      "type": "return",
+      "value": undefined,
+    },
+  ],
+}
+`;
+
+exports[`minimal logger with default levels basic api 1`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      Object {
+        "args": Array [
+          "hello",
+        ],
+        "level": "INFO",
+        "meta": undefined,
+        "tags": Array [],
+      },
+    ],
+    Array [
+      Object {
+        "args": Array [
+          "hello",
+        ],
+        "level": "INFO",
+        "meta": undefined,
+        "tags": Array [],
+      },
+    ],
+    Array [
+      Object {
+        "args": Array [
+          "hello",
+        ],
+        "level": "WARN",
+        "meta": undefined,
+        "tags": Array [],
+      },
+    ],
+    Array [
+      Object {
+        "args": Array [
+          "hello",
+        ],
+        "level": "ERROR",
+        "meta": undefined,
+        "tags": Array [],
+      },
+    ],
+  ],
+  "results": Array [
+    Object {
+      "type": "return",
+      "value": undefined,
+    },
+    Object {
+      "type": "return",
+      "value": undefined,
+    },
+    Object {
+      "type": "return",
+      "value": undefined,
+    },
+    Object {
+      "type": "return",
+      "value": undefined,
+    },
+  ],
+}
+`;
+
+exports[`minimal logger with default levels basic meta 1`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      Object {
+        "args": Array [
+          "hello",
+        ],
+        "level": "INFO",
+        "meta": Object {
+          "a": "a",
+          "n": 1,
+        },
+        "tags": Array [],
+      },
+    ],
+  ],
+  "results": Array [
+    Object {
+      "type": "return",
+      "value": undefined,
+    },
+  ],
+}
+`;
