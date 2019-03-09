@@ -45,6 +45,9 @@ export interface Logger extends ILogger {
   info (...args: any[]): void // default level. Useful for tracing back issues in production (issues that happened in the past)
   warn (...args: any[]): void // not normal behaviour, potential error (can lead to error), but not a hard error
   error (...args: any[]): void // hard error, should not happen normally. We always strive to have 0 errors
+
+  getTags (): string[]
+  getMeta (): any
 }
 
 // tslint:disable-next-line:interface-name

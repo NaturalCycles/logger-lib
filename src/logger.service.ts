@@ -8,6 +8,7 @@ import {
   LogObject,
   TAG_DEFAULT,
 } from './logger.model'
+import { isNode } from './util'
 
 export class LoggerService {
   constructor (opts: Partial<LoggerServiceOpts> = {}) {
@@ -28,8 +29,30 @@ export class LoggerService {
 
   private opts!: LoggerServiceOpts
 
-  getLogger (): Logger {
-    return createLogger(this.opts)
+  getLogger (...defaultTags: string[]): Logger {
+    return createLogger(this.opts, this.processDefaultTags(defaultTags))
+  }
+
+  /**
+   * Converts first tag from __filename with path, to filename without path.
+   * Example: /Users/.../../file.service.ts > file.service
+   */
+  private processDefaultTags (_defaultTags: string[]): string[] {
+    const defaultTags = [..._defaultTags]
+
+    // Support first tags as a filename (only in Node env)
+    if (isNode && defaultTags.length) {
+      const [tag1] = defaultTags
+      if (tag1.includes('/')) {
+        // strip to just filename
+        const path = require('path')
+        const tokens = path.basename(tag1).split('.')
+        tokens.pop()
+        defaultTags[0] = tokens.join('.')
+      }
+    }
+
+    return defaultTags
   }
 }
 
@@ -56,6 +79,9 @@ function createLogger (
       return impl.tag(...tags)
     },
     meta: (meta: StringMap<any>) => impl.meta(meta),
+
+    getTags: () => impl.defaultTags,
+    getMeta: () => impl.defaultMeta,
   } as Logger)
 
   return logger
@@ -64,8 +90,8 @@ function createLogger (
 class LoggerImpl implements ILogger {
   constructor (
     private opts: LoggerServiceOpts,
-    private defaultTags: string[],
-    private defaultMeta?: StringMap<any>,
+    public defaultTags: string[],
+    public defaultMeta?: StringMap<any>,
   ) {}
 
   log (level: LOG_LEVEL, ...args: any[]): void {
