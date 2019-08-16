@@ -18,11 +18,11 @@ workflows:
   version: 2
   default-workflow:
     jobs:
-      - tools/build-publish-lib-job:
+      - tools/publish-job:
           filters:
             branches:
               only: master
-      - tools/test-lib-job:
+      - tools/test-job:
           CC_TEST_REPORTER_ID: 7b532d0af3cddd1da0c4f55c05f3cef741e0d16e0bfe7cf8c401160cc473e2a3
 
   nightly-workflow:
@@ -33,4 +33,4 @@ workflows:
             branches:
               only: master
     jobs:
-      - tools/nightly-lib-job
+      - tools/nightly-job
